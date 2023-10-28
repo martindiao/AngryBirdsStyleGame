@@ -309,7 +309,7 @@ public class GoDummyPathEditor : Editor
 					                        Quaternion.identity,
 					                        handleSize,
 					                        new Vector3( 5, 0, 5 ),
-					                        Handles.SphereCap );
+					                        Handles.SphereHandleCap );
 				}
 				
 
@@ -333,7 +333,7 @@ public class GoDummyPathEditor : Editor
 						var color = Color.red;
 						color.a = 0.3f;
 						Handles.color = color;
-						Handles.SphereCap( 0, _target.nodes[i], Quaternion.identity, _snapDistance * 2 );
+						Handles.SphereHandleCap(0, _target.nodes[i], Quaternion.identity, _snapDistance * 2, EventType.Layout);
 						//Handles.DrawWireDisc( _target.nodes[i], Vector3.up, _snapDistance );
 						Handles.color = Color.white;
 					}
@@ -400,7 +400,7 @@ public class GoDummyPathEditor : Editor
 		// get the midpoint between the 2 points
 		var dir = Vector3.Lerp( point1, point2, lerpModifier );
 		var quat = Quaternion.LookRotation( point2 - point1 );
-		Handles.ArrowCap( 0, dir, quat, 25 );
+		Handles.ArrowHandleCap(0, dir, quat, 25, EventType.Layout);
 		
 		Handles.color = Color.white;
 	}
